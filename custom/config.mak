@@ -9,7 +9,7 @@ endif
 
 COMMON_CONFIG += --disable-gprofng --disable-shared --enable-static --enable-lto CFLAGS="${FLAG}" CXXFLAGS="${FLAG}" FFLAGS="${FLAG}" LDFLAGS="-s ${STAT}"
 
-BINUTILS_CONFIG += --enable-gold=yes
-GCC_CONFIG += --disable-libstdcxx-pch
+BINUTILS_CONFIG +=
+GCC_CONFIG += --disable-libquadmath --disable-libquadmath-support --disable-libgomp
 
 -include versions.mak

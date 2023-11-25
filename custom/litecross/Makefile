@@ -70,7 +70,8 @@ FULL_BINUTILS_CONFIG = \
 	--libdir=/lib --disable-multilib \
 	--with-sysroot=$(SYSROOT) \
 	--enable-deterministic-archives \
-	--disable-nls
+	--disable-nls \
+	--enable-gold=yes
 
 FULL_GCC_CONFIG = --enable-languages=c,c++ \
 	$(GCC_CONFIG_FOR_TARGET) \
