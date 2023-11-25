@@ -69,7 +69,8 @@ FULL_BINUTILS_CONFIG = \
 	--target=$(TARGET) --prefix= \
 	--libdir=/lib --disable-multilib \
 	--with-sysroot=$(SYSROOT) \
-	--enable-deterministic-archives
+	--enable-deterministic-archives \
+	--disable-nls
 
 FULL_GCC_CONFIG = --enable-languages=c,c++ \
 	$(GCC_CONFIG_FOR_TARGET) \
@@ -85,12 +86,21 @@ FULL_GCC_CONFIG = --enable-languages=c,c++ \
 	--disable-gnu-indirect-function \
 	--disable-libmpx \
 	--enable-initfini-array \
-	--enable-libstdcxx-time=rt \
-	--enable-deterministic-archives \
 	--enable-libstdcxx-time \
-	--enable-libquadmath --enable-libquadmath-support \
+	--enable-deterministic-archives \
 	--disable-decimal-float \
-        $(OVERRIDE)
+	--enable-checking=release \
+	--disable-cet \
+	--disable-fixed-point \
+	--disable-libstdcxx-pch \
+	--disable-nls \
+	--disable-symvers \
+	--enable-__cxa_atexit \
+	--enable-plugin \
+	--enable-default-pie \
+	--disable-libssp \
+	--enable-threads \
+	$(OVERRIDE)
 
 FULL_MUSL_CONFIG = $(MUSL_CONFIG) \
 	--prefix= --host=$(TARGET)

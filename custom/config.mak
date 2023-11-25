@@ -1,4 +1,4 @@
-STAT = -static --static
+# STAT = -static --static
 FLAG = -g0 -O2 -Wno-error
 
 ifneq ($(NATIVE),)
@@ -7,9 +7,9 @@ else
 COMMON_CONFIG += CC="gcc ${STAT}" CXX="g++ ${STAT}" FC="gfortran ${STAT}"
 endif
 
-COMMON_CONFIG += --disable-gprofng --disable-nls --disable-shared --enable-static --enable-lto CFLAGS="${FLAG}" CXXFLAGS="${FLAG}" FFLAGS="${FLAG}" LDFLAGS="-s ${STAT}"
+COMMON_CONFIG += --disable-gprofng --disable-shared --enable-static --enable-lto CFLAGS="${FLAG}" CXXFLAGS="${FLAG}" FFLAGS="${FLAG}" LDFLAGS="-s ${STAT}"
 
 BINUTILS_CONFIG += --enable-gold=yes
-GCC_CONFIG += --disable-cet --disable-libstdcxx-pch --enable-checking=release --enable-languages=c,c++
+GCC_CONFIG += --disable-libstdcxx-pch
 
 -include versions.mak
