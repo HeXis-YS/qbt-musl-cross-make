@@ -111,7 +111,7 @@ FULL_BINUTILS_CONFIG += --build=$(BUILD) --host=$(BUILD)
 FULL_GCC_CONFIG += --with-build-sysroot=$(CURDIR)/obj_sysroot \
 	AR_FOR_TARGET=$(PWD)/obj_binutils/binutils/ar \
 	AS_FOR_TARGET=$(PWD)/obj_binutils/gas/as-new \
-	LD_FOR_TARGET=$(PWD)/obj_binutils/ld/ld-new \
+	LD_FOR_TARGET=$(PWD)/obj_binutils/gold/ld-new \
 	NM_FOR_TARGET=$(PWD)/obj_binutils/binutils/nm-new \
 	OBJCOPY_FOR_TARGET=$(PWD)/obj_binutils/binutils/objcopy \
 	OBJDUMP_FOR_TARGET=$(PWD)/obj_binutils/binutils/objdump \
@@ -227,6 +227,7 @@ obj_binutils/.lc_built: | obj_binutils/.lc_configured
 	touch $@
 
 obj_gcc/.lc_configured: | obj_gcc src_gcc
+	sed -i '/void/{N; /std::terminate () throw()/ {s/void/__attribute__ ((used)) &/}}' src_gcc/libstdc++-v3/libsupc++/eh_terminate.cc
 	cd obj_gcc && ../src_gcc/configure $(FULL_GCC_CONFIG)
 	touch $@
 

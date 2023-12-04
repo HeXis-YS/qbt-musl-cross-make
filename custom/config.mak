@@ -1,5 +1,5 @@
-STAT = -static --static
-FLAG = -g0 -O2 -fno-align-functions -fno-align-jumps -fno-align-loops -fno-align-labels -Wno-error
+# STAT = -static --static
+FLAG = -g0 -O2 -Wno-error
 
 ifneq ($(NATIVE),)
 COMMON_CONFIG += CC="$(HOST)-gcc ${STAT}" CXX="$(HOST)-g++ ${STAT}" FC="$(HOST)-gfortran ${STAT}"
@@ -11,5 +11,7 @@ COMMON_CONFIG += --disable-gprofng CFLAGS="${FLAG}" CXXFLAGS="${FLAG}" FFLAGS="$
 
 BINUTILS_CONFIG += --enable-gold=yes
 GCC_CONFIG += --enable-default-pie --enable-static-pie --disable-cet
+GCC_CONFIG += --disable-shared --enable-static
+# GCC_CONFIG += --enable-shared --enable-static --disable-symvers
 
 -include versions.mak
