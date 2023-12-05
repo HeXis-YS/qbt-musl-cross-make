@@ -111,7 +111,7 @@ FULL_BINUTILS_CONFIG += --build=$(BUILD) --host=$(BUILD)
 FULL_GCC_CONFIG += --with-build-sysroot=$(CURDIR)/obj_sysroot \
 	AR_FOR_TARGET=$(PWD)/obj_binutils/binutils/ar \
 	AS_FOR_TARGET=$(PWD)/obj_binutils/gas/as-new \
-	LD_FOR_TARGET=$(PWD)/obj_binutils/gold/ld-new \
+	LD_FOR_TARGET=$(PWD)/obj_binutils/ld/ld-new \
 	NM_FOR_TARGET=$(PWD)/obj_binutils/binutils/nm-new \
 	OBJCOPY_FOR_TARGET=$(PWD)/obj_binutils/binutils/objcopy \
 	OBJDUMP_FOR_TARGET=$(PWD)/obj_binutils/binutils/objdump \

@@ -24,7 +24,7 @@ COWPATCH = $(CURDIR)/cowpatch.sh
 
 HOST = $(if $(NATIVE),$(TARGET))
 BUILD_DIR = build/$(if $(HOST),$(HOST),local)/$(TARGET)
-OUTPUT = $(CURDIR)/output$(if $(HOST),-$(HOST))
+OUTPUT = $(CURDIR)/build/$(TARGET)
 
 REL_TOP = ../../..
 
