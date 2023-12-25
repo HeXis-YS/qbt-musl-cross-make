@@ -1,0 +1,3 @@
+[submodule "musl-cross-make"]
+	path = musl-cross-make
+	url = https://git.zv.io/toolchains/musl-cross-make.git
