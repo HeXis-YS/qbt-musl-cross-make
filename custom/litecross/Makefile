@@ -228,6 +228,7 @@ obj_binutils/.lc_built: | obj_binutils/.lc_configured
 
 obj_gcc/.lc_configured: | obj_gcc src_gcc
 	sed -i '/void/{N; /std::terminate () throw()/ {s/void/__attribute__ ((used)) &/}}' src_gcc/libstdc++-v3/libsupc++/eh_terminate.cc
+	sed -i 's/x$gcc_no_link/UNDEFINED/g' src_gcc/libstdc++-v3/configure src_gcc/libssp/configure src_gcc/libquadmath/configure
 	cd obj_gcc && ../src_gcc/configure $(FULL_GCC_CONFIG)
 	touch $@
 

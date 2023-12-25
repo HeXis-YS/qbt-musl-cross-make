@@ -1,0 +1,10 @@
+--- a/crt/crt1.c
++++ b/crt/crt1.c
+@@ -11,6 +11,7 @@
+ int __libc_start_main(int (*)(), int, char **,
+ 	void (*)(), void(*)(), void(*)());
+ 
++__attribute__((__used__))
+ void _start_c(long *p)
+ {
+ 	int argc = p[0];
